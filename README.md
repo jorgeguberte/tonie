@@ -1,7 +1,10 @@
-# Vue 3 + Vite
+This app interacts with the Wed MIDI API in a way that allows the user to input MIDI notes and get visual and aural feedback regarding the input. 
+I.e: it identifies - via the tonaljs  library - the chord that is being played, and plays the corresponding tones using the tone.js library.
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Features Roadmap
+- ~~ MIDI Input ~~ 
+-  ~~Visual feedback (keyboard on screen)~~
+- Aural feedback (notes via AudioContextAPI or possibly via a third party library if that's easier)
+- ~~Triad recognition~~
+- ~~Tetrachord recognition~~
+- Input history
