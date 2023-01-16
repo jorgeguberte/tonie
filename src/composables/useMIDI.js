@@ -1,6 +1,7 @@
 import { ref, onMounted, watch, reactive } from "vue";
 import {Chord} from 'tonal';
 
+import {useChordsStore} from '../stores/chordStore';
 
 
 
@@ -21,7 +22,7 @@ export function useMIDI() {
 
 
   onMounted(() => {
-
+    const chordsStore = useChordsStore();
     //console.log(ignoreInversion.value);
     //Request MIDI Access
     if (navigator.requestMIDIAccess) {
@@ -46,13 +47,21 @@ export function useMIDI() {
       }
 
       
+      
       //If there are at least 3 different notes pressed, it's a chord
       notesPressed.notesUI.length >= 3 ? notesPressed.isChord = true : notesPressed.isChord = false;
 
 
     notesPressed.isChord? currentChords.value = Chord.detect(notesPressed.notesUI) : currentChords.value = null;
     
+    
     });
+    
+    watch(currentChords, (current, previous) => {
+      if(current && current.length > 0){
+        chordsStore.addChord(current[0]);
+      }
+    })
 
 
     
@@ -95,12 +104,19 @@ export function useMIDI() {
         },
       });
 
+
       document.dispatchEvent(synthEvent);
+
+    
+
+
     } else if (event.data[0] == 128) {
       notesPressed.notes.splice(notesPressed.notes.indexOf(note), 1);
       
     }
   }
+
+
 
   return { midiStatus, midiIOList, notesPressed, currentChords, ignoreInversion };
 }

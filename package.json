@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "pinia": "^2.0.29",
     "tonal": "^4.8.0",
     "tone": "^14.7.77",
     "vue": "^3.2.45"
