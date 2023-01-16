@@ -2,13 +2,17 @@
 import { onMounted, ref } from 'vue';
 import {useMIDI} from './composables/useMIDI';
 
+
 import PianoKeyboard from './components/PianoKeyboard.vue';
+import ToneProducer from './components/ToneProducer.vue';
+
 
 const {midiStatus, midiIOList, notesPressed, currentChords, ignoreInversion} = useMIDI();
 
 
+
 onMounted(()=>{
-    console.log('App mounted')
+    console.log('App mounted');
 })
 
 
@@ -32,7 +36,7 @@ onMounted(()=>{
 
 <PianoKeyboard :activeNotes="notesPressed.notesUI"/>
 
-
+<ToneProducer :activeNotes="notesPressed.notes"/>
 </template>
 
 <style scoped>

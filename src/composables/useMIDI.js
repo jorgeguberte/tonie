@@ -1,6 +1,10 @@
 import { ref, onMounted, watch, reactive } from "vue";
 import {Chord} from 'tonal';
 
+
+
+
+
 export function useMIDI() {
   const midiStatus = ref(false);
   const midiIOList = ref(null);
@@ -14,29 +18,20 @@ export function useMIDI() {
 
   let midi = null;
 
+
+
   onMounted(() => {
+
     //console.log(ignoreInversion.value);
     //Request MIDI Access
     if (navigator.requestMIDIAccess) {
       navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
     }
 
+    
+
     watch(notesPressed.notes, async (current, previous) => {
-      // if (notesPressed.notes.length > 0) {
-      //   notesPressed.notesUI = notesPressed.notes.map((note) => {
-      //       return noteNames[note % 12];
-      //   });
 
-      // } else {
-      //   notesPressed.notesUI = [];
-      // }
-
-      // //Check if notes are a chord
-      // if (notesPressed.notes.length >= 3) {
-      //   notesPressed.isChord = true;
-      // } else {
-      //   notesPressed.isChord = false;
-      // }
 
       //If there is at least one note pressed, build notesUI array, avoiding note name duplication
       if (notesPressed.notes.length > 0) {
@@ -56,7 +51,7 @@ export function useMIDI() {
 
 
     notesPressed.isChord? currentChords.value = Chord.detect(notesPressed.notesUI) : currentChords.value = null;
-    console.log(Chord.detect(notesPressed.notesUI))
+    
     });
 
 
@@ -91,12 +86,19 @@ export function useMIDI() {
 
     if (event.data[0] == 144) {
       notesPressed.notes.push(note);
-      //If ignoreInversion is true, order by note number
-      /*if(ignoreInversion.value){
-        notesPressed.notes.sort((a, b) => a - b);
-      }*/
+
+      //Fire a MIDI event to the synth
+      let synthEvent = new CustomEvent("noteTriggered", {
+        detail: {
+          note: noteName,
+          velocity: event.data[2],
+        },
+      });
+
+      document.dispatchEvent(synthEvent);
     } else if (event.data[0] == 128) {
       notesPressed.notes.splice(notesPressed.notes.indexOf(note), 1);
+      
     }
   }
 

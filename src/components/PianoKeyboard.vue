@@ -108,6 +108,7 @@ watch(()=>props.activeNotes, (newValue, oldValue)=>{
    
 })
 
+
 </script>
 
 <style scoped>
