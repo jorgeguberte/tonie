@@ -1,18 +1,7 @@
 <template>
-<!--<div class="flex  w-30 text-sm bg-white text-purple-800 pt-1 pb-1 pl-2 pr-3 rounded-md">
-    <svg :class="{active:status, inactive:!status}" height="20" width="20">
-        <circle cx="10" cy="10" r="5" />
-    </svg>
-    {{uiLabel}}
-</div>
-<div v-if="uiLabel == 'Synth Status' && !status" class="teste">No sound? Press to turn synth <span class="text-green-500">on</span></div>
-
-
--->
-
 <div class="blipWrapper">
   <div class="blipContainer w-auto" v-on="uiLabel == 'Synth Status' && !status?{click:triggerAudioCtx}:{}">
-      <svg :class="{active:status, inactive:!status}" height="20" width="20">
+    <svg :class="{active:status, inactive:!status}" height="20" width="20">
           <circle cx="10" cy="10" r="5" />
       </svg>
       {{ uiLabel }}
