@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue';
 import {useMIDI} from './composables/useMIDI';
 
+import StatusBar from './components/StatusBar.vue';
 
 import PianoKeyboard from './components/PianoKeyboard.vue';
 import ToneProducer from './components/ToneProducer.vue';
@@ -9,7 +10,10 @@ import ToneProducer from './components/ToneProducer.vue';
 
 import {useChordsStore} from './stores/chordStore';
 
-const {midiStatus, midiIOList, notesPressed, currentChords, ignoreInversion} = useMIDI();
+
+const {midiStatus, midiDeviceStatus, midiIOList, notesPressed, currentChords, ignoreInversion} = useMIDI();
+
+
 
 
 const chordsStore = useChordsStore();
@@ -23,7 +27,7 @@ onMounted(()=>{
 </script>
 
 <template>
-<div>{{midiStatus}}</div>
+<StatusBar :midiStatus="midiStatus" :midiDeviceStatus="midiDeviceStatus"/>
 <ul>
     <li v-for="device in midiIOList">{{device.name}}</li>
 </ul>

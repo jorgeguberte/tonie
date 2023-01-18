@@ -38,11 +38,18 @@ onMounted(() => {
 });
 
 
+
 async function startAudioContext(){
     await Tone.start();
     audioContextStarted = true;
     synth = await new Tone.PolySynth(Tone.Synth).toDestination();
     synthReady.value = true;
+
+    const synthStatusEvent = new CustomEvent('synthStatus', {detail: {status: synthReady.value}});
+    document.dispatchEvent(synthStatusEvent);
+
+    
+    
 }
 
 

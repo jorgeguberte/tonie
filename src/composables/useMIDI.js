@@ -8,6 +8,7 @@ import {useChordsStore} from '../stores/chordStore';
 
 export function useMIDI() {
   const midiStatus = ref(false);
+  const midiDeviceStatus = ref(false);
   const midiIOList = ref(null);
 
   const notesPressed = reactive({ notes: [], notesUI: [], isChord: false });
@@ -74,6 +75,10 @@ export function useMIDI() {
   function onMIDISuccess(midiAccess) {
     midiStatus.value = true;
     midi = midiAccess;
+
+    //Set midiDeviceStatus to true if there are MIDI devices connected
+    midi.inputs.size >0 ? midiDeviceStatus.value = true : midiDeviceStatus.value = false;
+
     //Build list of MIDI devices
     midiIOList.value = [];
     for (let input of midiAccess.inputs.values()) {
@@ -118,5 +123,5 @@ export function useMIDI() {
 
 
 
-  return { midiStatus, midiIOList, notesPressed, currentChords, ignoreInversion };
+  return { midiStatus, midiDeviceStatus, midiIOList, notesPressed, currentChords, ignoreInversion };
 }
