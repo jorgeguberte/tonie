@@ -1,11 +1,11 @@
 <template>
-    <div @click="startAudioContext" v-if="canStartAudioContext">
+   <!-- <div @click="startAudioContext" v-if="canStartAudioContext">
         Click to Play
     </div>
     <div v-if="synthReady">
         Synth Ready
     </div>
-
+-->
 </template>
 
 <script setup>
@@ -34,6 +34,10 @@ onMounted(() => {
         if(synthReady.value == true){
             synth.triggerAttackRelease(e.detail.note, '8n');
         }
+    });
+
+    document.addEventListener('startAudioCtx',(e)=>{
+        startAudioContext();
     });
 });
 

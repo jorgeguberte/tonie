@@ -10,7 +10,12 @@ module.exports = {
         normal: ['Noto Music', 'sans-serif'],
       },
     },
-    extend: {},
+    
+    extend: {
+      fontSize:{
+        '2xs': '.7rem',
+      }
+    },
   },
   plugins: [],
 }

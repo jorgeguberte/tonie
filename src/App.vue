@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue';
 import {useMIDI} from './composables/useMIDI';
 
 import StatusBar from './components/StatusBar.vue';
+import ChordViz from './components/ChordViz.vue';
 
 import PianoKeyboard from './components/PianoKeyboard.vue';
 import ToneProducer from './components/ToneProducer.vue';
@@ -17,42 +18,34 @@ const {midiStatus, midiDeviceStatus, midiIOList, notesPressed, currentChords, ig
 
 
 const chordsStore = useChordsStore();
-onMounted(()=>{
-    console.log('App mounted');
-    
-})
-
-
-
 </script>
 
 <template>
-<StatusBar :midiStatus="midiStatus" :midiDeviceStatus="midiDeviceStatus"/>
-<ul>
+    <div class="pl-4">
+    <StatusBar :midiStatus="midiStatus" :midiDeviceStatus="midiDeviceStatus"/>
+    <ChordViz :chords="chordsStore.chords"/>
+    <ToneProducer :activeNotes="notesPressed.notes"/>
+    </div>
+</template>
+
+<!--<ul>
     <li v-for="device in midiIOList">{{device.name}}</li>
-</ul>
-<form>
-    <input type="checkbox" id="ignoreInversion" v-model="ignoreInversion">
-    <label for="ignoreInversion">Ignore chord inversion? {{ ignoreInversion}}</label>
-</form>
-<div>
-    {{ notesPressed }}
-</div>
-<div>{{currentChords}}</div>
+</ul>-->
 
 
-<PianoKeyboard :activeNotes="notesPressed.notesUI"/>
 
-<ToneProducer :activeNotes="notesPressed.notes"/>
+<!--<PianoKeyboard :activeNotes="notesPressed.notesUI"/>-->
 
-<div class="mt-4">
+<!--<ToneProducer :activeNotes="notesPressed.notes"/>-->
+
+<!--<div class="mt-4">
     <h2 class="text-xl font-medium">Chord History</h2>
     <ul>
         <li v-for="chord in chordsStore.chords">{{chord}}</li>
     </ul>
 </div>
+-->
 
-</template>
 
 <style scoped>
 

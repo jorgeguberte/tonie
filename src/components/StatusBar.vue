@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full flex pt-4 pb-4 bg-stone-300">
+    <div class="w-full flex pt-4 pb-4 text-zinc-50 gap-4">
         <StatusBlip uiLabel="MIDI Access" :status="midiStatus"/>
         <StatusBlip uiLabel="MIDI Device" :status="midiDeviceStatus"/>
         <StatusBlip uiLabel="Synth Status" :status="synthStatus"/>
