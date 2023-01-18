@@ -8,9 +8,11 @@
     "build": "vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test":"vitest --dom"
   },
   "dependencies": {
+    "happy-dom": "^8.1.4",
     "pinia": "^2.0.29",
     "tonal": "^4.8.0",
     "tone": "^14.7.77",
@@ -27,6 +29,7 @@
     "@storybook/vue3": "^7.0.0-beta.28",
     "@storybook/vue3-vite": "^7.0.0-beta.28",
     "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/test-utils": "^2.2.7",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
     "postcss": "^8.4.21",
@@ -35,6 +38,7 @@
     "storybook": "^7.0.0-beta.28",
     "tailwindcss": "^3.2.4",
     "vite": "^4.0.0",
+    "vitest": "^0.27.2",
     "vue-loader": "^16.8.3"
   }
 }
