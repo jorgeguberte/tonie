@@ -5,6 +5,11 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily:{
+      notomusic:{
+        normal: ['Noto Music', 'sans-serif'],
+      },
+    },
     extend: {},
   },
   plugins: [],

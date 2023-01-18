@@ -4,13 +4,16 @@
         <circle cx="10" cy="10" r="5" />
     </svg>
     {{uiLabel}}
-
+    
     
 </div>
+
 </template>
 
 <script setup>
-defineProps(['uiLabel', 'status'])
+defineProps(['uiLabel', 'status']);
+
+
 </script>
 
 <style scoped>

@@ -51,6 +51,7 @@ onMounted(()=>{
         <li v-for="chord in chordsStore.chords">{{chord}}</li>
     </ul>
 </div>
+
 </template>
 
 <style scoped>
