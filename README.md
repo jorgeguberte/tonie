@@ -12,3 +12,9 @@ I.e: it identifies - via the tonaljs  library - the chord that is being played, 
 - ~~Tetrachord recognition~~
 - ~~Input history~~
 - Basic UI
+  
+  ### v0.0.2 
+- Key selection
+  - Display accidental based on selected key
+- Key suggestion
+  - Suggest key based on current chord and/or input history
