@@ -14,6 +14,7 @@ I.e: it identifies - via the tonaljs  library - the chord that is being played, 
 - Basic UI
   
   ### v0.0.2 
+- Input without a MIDI device
 - Key selection
   - Display accidental based on selected key
 - Key suggestion
