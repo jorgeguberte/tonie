@@ -14,11 +14,6 @@ export default{
     }
 }
 
-/*export const Primary = () => ({
-    components: {StatusBar},
-    template: '<StatusBar deviceStatus="true" synthStatus="false"/>',
-})*/
-
 const StatusBarStory = (args)=>({
     components: {StatusBar},
     setup(){

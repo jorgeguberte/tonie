@@ -23,7 +23,7 @@ const chordsStore = useChordsStore();
 <template>
     <div class="pl-4">
     <StatusBar :midiStatus="midiStatus" :midiDeviceStatus="midiDeviceStatus"/>
-    <ChordViz :chords="chordsStore.chords"/>
+    <ChordViz :currentChords="currentChords"/>
     <ToneProducer :activeNotes="notesPressed.notes"/>
     </div>
 </template>
