@@ -21,8 +21,8 @@ const chordsStore = useChordsStore();
 </script>
 
 <template>
-    <div class="pl-4">
-    <StatusBar :midiStatus="midiStatus" :midiDeviceStatus="midiDeviceStatus"/>
+    <div class="h-screen">
+    <StatusBar :midiStatus="midiStatus" :midiDeviceStatus="midiDeviceStatus" class="pl-4"/>
     <ChordViz :currentChords="currentChords"/>
     <ToneProducer :activeNotes="notesPressed.notes"/>
     </div>

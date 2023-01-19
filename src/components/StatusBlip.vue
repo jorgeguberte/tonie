@@ -23,11 +23,11 @@ function triggerAudioCtx(){
 <style scoped>
 
 .blipWrapper{
-  @apply flex flex-col w-auto
+  @apply flex flex-col 
 }
 
 .blipContainer{
-  @apply bg-red-200 flex bg-green-200 text-sm pt-1 pb-1 pl-2 pr-3 rounded-md bg-white text-purple-800 w-32 place-content-center
+  @apply flex text-2xs md:text-sm pt-1 pb-1 pl-2 pr-3 rounded-md bg-white text-purple-800 w-20 md:w-32 place-content-center 
 }
 
 .blipExtra{

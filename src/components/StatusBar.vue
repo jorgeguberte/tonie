@@ -3,7 +3,7 @@
         <StatusBlip uiLabel="MIDI Access" :status="midiStatus"/>
         <StatusBlip uiLabel="MIDI Device" :status="midiDeviceStatus"/>
         <StatusBlip uiLabel="Synth Status" :status="synthStatus"/>
-        <div class="ml-auto pr-10 text-sm">tonie</div>
+        <div class="ml-auto  pr-4 text-sm">tonie</div>
     </div>
 </template>
 

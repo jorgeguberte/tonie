@@ -1,35 +1,45 @@
 <template>
-    <div class="chordViz_wrapper">
-        <div v-if="!currentChords || currentChords.length<1">Play a Chord</div>
-        <h1 v-if="currentChords" class="chordName">{{currentChords[0]}}</h1>
-
-        <div v-if="currentChords && currentChords.length>1" class="flex flex-col text-center pt-4">
-            <p class="text-xs">Other Possible Chords</p>
-            <ul>
-                <li v-for="chord in currentChords.slice(1)" :key="chord">{{chord}}</li>
-            </ul>
-        </div>
-        
+  <div class="chordViz_wrapper">
+    <div class="chordViz_container" v-if="currentChords && currentChords.length>=1">
+        <p class="text-7xl font-bold chordViz_currentChord">
+        {{currentChords[0].replace(/#/g, "&sharp;").replace(/M/g,'')}}
+    </p>
+      <ul class="chordViz_inversions" v-if="currentChords && currentChords.length >1">
+        <li class="text-center justify-center bg-white text-purple-900 font-semibold pr-2 pl-2 pt-1 pb-1 rounded-md" v-for="chord in currentChords.slice(1)" :key="chord">{{chord.replace(/#/g, "&sharp;").replace(/M/g,'')}}</li>
+      </ul>
     </div>
-
-
+    <div class="chordViz_container" v-else>
+      <div class="chordViz_prompt">Play a Chord</div>
+    </div>
+  </div>
 </template>
 
 <script setup>
-defineProps(['currentChords']);
+import { watch, onMounted, defineProps } from "vue";
+const props = defineProps(["currentChords"]);
+
+
+
+//Watch currentCHords for changes
+
+//Change every # character in currentChords to &sharp;
+
+//currentChords.map((chord) => chord.replace(/#/g, "&sharp;"));
+
 </script>
 
 <style scoped>
-.chordName{
-    @apply text-6xl text-white font-semibold font-notomusic;
-}
-
 .chordViz_wrapper{
-    @apply flex flex-col items-center justify-center;
-    @apply w-full h-full;
-    @apply pt-20;
-    @apply text-white;
+    @apply flex flex-col items-center justify-center h-3/6  text-white font-notomusic
+}
+.chordName {
+  @apply text-6xl text-white font-semibold font-notomusic;
+}
+.chordViz_container{
+    @apply text-center
 }
 
-
+.chordViz_inversions{
+  @apply flex flex-row gap-2 pt-4 place-content-center
+}
 </style>
