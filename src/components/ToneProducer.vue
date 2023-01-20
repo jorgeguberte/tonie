@@ -16,6 +16,7 @@ const props = defineProps(['activeNotes']);
 
 const canStartAudioContext = ref(false);
 var audioContextStarted = false;
+
 const synthReady = ref(false);
 var synth = null;
 
@@ -30,7 +31,7 @@ function getNoteName(note){
 onMounted(() => {
     canStartAudioContext.value = true;
     document.addEventListener('noteTriggered', (e)=>{
-        //If sunth is ready, trigger the note
+        //If synth is ready, trigger the note
         if(synthReady.value == true){
             synth.triggerAttackRelease(e.detail.note, '8n');
         }
