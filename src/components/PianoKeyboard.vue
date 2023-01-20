@@ -19,7 +19,7 @@
             <rect x="66.64%" width="9.52%" height="60%" fill="black"/>
             <rect x="80.92%" width="9.52%" height="60%" fill="black"/>-->
 
-            <rect v-for="key in keys" :x="key.x + '%'" :y="key.y" :width="key.width" :height="key.height" :fill="key.fill" :stroke="key.stroke" :id="key.note" rx="3"/>
+            <rect v-for="key in keys" :x="key.x + '%'" :y="key.y" :width="key.width" :height="key.height" :fill="key.fill" :stroke="key.stroke" :id="key.note" rx="3" class="pianoKey"/>
         </svg>
     </div>
 </div>
