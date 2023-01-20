@@ -24,6 +24,7 @@ const chordsStore = useChordsStore();
     <div class="h-screen">
     <StatusBar :midiStatus="midiStatus" :midiDeviceStatus="midiDeviceStatus" class="pl-4"/>
     <ChordViz :currentChords="currentChords"/>
+    <PianoKeyboard :activeNotes="notesPressed.notesUI"/>
     <ToneProducer :activeNotes="notesPressed.notes"/>
     </div>
 </template>

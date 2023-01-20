@@ -1,45 +1,52 @@
 <template>
-  <div class="chordViz_wrapper">
-    <div class="chordViz_container" v-if="currentChords && currentChords.length>=1">
-        <p class="text-7xl font-bold chordViz_currentChord">
-        {{currentChords[0].replace(/#/g, "&sharp;").replace(/M/g,'')}}
-    </p>
-      <ul class="chordViz_inversions" v-if="currentChords && currentChords.length >1">
-        <li class="text-center justify-center bg-white text-purple-900 font-semibold pr-2 pl-2 pt-1 pb-1 rounded-md" v-for="chord in currentChords.slice(1)" :key="chord">{{chord.replace(/#/g, "&sharp;").replace(/M/g,'')}}</li>
-      </ul>
-    </div>
-    <div class="chordViz_container" v-else>
-      <div class="chordViz_prompt">Play a Chord</div>
-    </div>
+<div class="chordViz_wrapper">
+  <div class="chordViz_currentChordWrapper">
+    <p class="chordViz_currentChordContainer" v-if="currentChords && currentChords.length >= 1">
+      {{ currentChords[0].replace(/#/g, "&sharp;").replace(/M/g, "") }}
+      </p>
+      <p v-else>Play a chord</p>
   </div>
+  <div class="chordViz_additionalChordsWrapper">
+    <ul v-if="currentChords && currentChords.length >=2" class="chordViz_additionalChordsContainer">
+      <li v-for="chord in currentChords.slice(1)" :key="chord" class="chordViz_additionalChordItem">
+      {{ chord.replace(/#/g, "&sharp;").replace(/M/g, "") }}
+    </li>
+    </ul>
+  </div>
+
+
+</div>
 </template>
 
 <script setup>
-import { watch, onMounted, defineProps } from "vue";
 const props = defineProps(["currentChords"]);
-
-
-
-//Watch currentCHords for changes
-
-//Change every # character in currentChords to &sharp;
-
-//currentChords.map((chord) => chord.replace(/#/g, "&sharp;"));
 
 </script>
 
 <style scoped>
-.chordViz_wrapper{
-    @apply flex flex-col items-center justify-center h-3/6  text-white font-notomusic
-}
-.chordName {
-  @apply text-6xl text-white font-semibold font-notomusic;
-}
-.chordViz_container{
-    @apply text-center
+
+.chordViz_currentChordContainer{
+  @apply text-7xl font-bold h-36 
 }
 
-.chordViz_inversions{
-  @apply flex flex-row gap-2 pt-4 place-content-center
+
+.chordViz_wrapper{
+  @apply grid grid-cols-1 grid-rows-2 text-white font-notomusic;
+
+}
+
+.chordViz_currentChordWrapper{
+  @apply flex justify-center h-20
+}
+
+.chordViz_additionalChordsWrapper{
+@apply flex justify-center
+}
+
+.chordViz_additionalChordsContainer{
+  @apply flex flex-row place-items-center justify-center gap-3
+}
+.chordViz_additionalChordItem{
+  @apply rounded-md text-purple-900 bg-white font-bold pl-3 pr-3 pt-1 pb-1
 }
 </style>

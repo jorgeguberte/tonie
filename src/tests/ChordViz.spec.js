@@ -6,40 +6,33 @@ describe('ChordViz', ()=>{
     expect(ChordViz).toBeTruthy()
     
     const wrapper = mount(ChordViz, {});
+
     it('mounts component', async()=>{
         expect(wrapper).toBeTruthy()
     });
 
-    it('renders the chord', async()=>{
-        expect(wrapper.get('.chordViz_container')).toBeTruthy()
+    it('displays a prompt if no chord is selected', async()=>{
+        expect(wrapper.get('.chordViz_currentChordWrapper p')).toBeTruthy()
+        expect(wrapper.find('.chordViz_currentChordContainer').exists()).toBe(false)
     });
 
-    it('displays a prompt if no chord is selected', async()=>{
-        expect(wrapper.get('.chordViz_prompt')).toBeTruthy()
+    it('doesnt display additional chords when no chord is active',async()=>{
+        expect(wrapper.find('.chordViz_additionalChordsContainer').exists()).toBe(false)
     });
 
     it('displays a chord when one is selected', async()=>{
         await wrapper.setProps({currentChords: ['C']})
-        expect(wrapper.get('.chordViz_currentChord')).toBeTruthy()
+        expect(wrapper.get('.chordViz_currentChordContainer')).toBeTruthy()
+    })
 
-    });
+    it('doesnt display additional chords if only one is active', async()=>{
+        expect(wrapper.find('.chordViz_additionalChordsContainer').exists()).toBe(false)
+    })
 
-    /*it('hides the list of inversions when only one chord is selected', async()=>{
-        await wrapper.setProps({currentChords: ['Dm']})
-        expect(wrapper.get('.chordViz_inversions')).toBeFalsy()
-    });*/
-    
-    //it hides the list of inversions when only one chord is selected
-    it('hides the list of inversions when only one chord is selected', async()=>{
-        await wrapper.setProps({currentChords: ['Dm']})
-        expect(wrapper.find('.chordViz_inversions').exists()).toBe(false);
-    });
-    
-
-    it('displays a list of inversions when one is selected', async()=>{
-        await wrapper.setProps({currentChords: ['C','D']})
-        expect(wrapper.get('.chordViz_inversions')).toBeTruthy()
-    });
-
-  
+    it('shows the list of additional chords when more than one chord is present', async()=>{
+        await wrapper.setProps({currentChords: ['C','Dm']})
+        expect(wrapper.find('.chordViz_additionalChordsContainer').exists()).toBe(true)
+        expect(wrapper.find('.chordViz_additionalChordItem').exists()).toBe(true)
+        expect(wrapper.get('.chordViz_additionalChordItem').text()).toContain('Dm')
+    })
 })

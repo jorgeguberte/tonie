@@ -1,5 +1,6 @@
 <template>
-    <div class="w-[280px] bg-red-200">
+    <div class="pianoWrapper w-full  flex place-content-center justify-center items-center">
+    <div class="w-[280px] ">
         <svg width="100%">
 
             
@@ -18,10 +19,11 @@
             <rect x="66.64%" width="9.52%" height="60%" fill="black"/>
             <rect x="80.92%" width="9.52%" height="60%" fill="black"/>-->
 
-            <rect v-for="key in keys" :x="key.x + '%'" :y="key.y" :width="key.width" :height="key.height" :fill="key.fill" :stroke="key.stroke" :id="key.note"/>
+            <rect v-for="key in keys" :x="key.x + '%'" :y="key.y" :width="key.width" :height="key.height" :fill="key.fill" :stroke="key.stroke" :id="key.note" rx="3"/>
         </svg>
     </div>
-    {{ activeNotes }}
+</div>
+    <!--{{ activeNotes }}-->
 </template>
 
 <script setup>
@@ -94,7 +96,7 @@ watch(()=>props.activeNotes, (newValue, oldValue)=>{
     //Loop through transformedActiveNotes and  change the fill of the corresponding key in keys array
     transformedActiveNotes.forEach(note => {
         const keyIndex = findKeyIndex(note);
-        keys[keyIndex].fill = 'red';
+        keys[keyIndex].fill = 'orange';
     });
 
  
