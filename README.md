@@ -1,4 +1,7 @@
 # Tonie
+[![Node.js CI](https://github.com/jorgeguberte/tonie/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/jorgeguberte/tonie/actions/workflows/node.js.yml)
+
+
 This app interacts with the Wed MIDI API in a way that allows the user to input MIDI notes and get visual and aural feedback regarding the input. 
 I.e: it identifies - via the tonaljs  library - the chord that is being played, and plays the corresponding tones using the tone.js library.
 
