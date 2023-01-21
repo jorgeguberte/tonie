@@ -14,7 +14,7 @@ I.e: it identifies - via the tonaljs  library - the chord that is being played, 
 - ~~Triad recognition~~
 - ~~Tetrachord recognition~~
 - ~~Input history~~
-- Basic UI
+- ~~Basic UI~~
   
   ### v0.0.2 
 - Input without a MIDI device

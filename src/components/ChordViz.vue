@@ -31,7 +31,7 @@ const props = defineProps(["currentChords"]);
 
 
 .chordViz_wrapper{
-  @apply grid grid-cols-1 grid-rows-2 text-white font-notomusic;
+  @apply grid grid-cols-1 grid-rows-2 text-white font-notomusic mt-20;
 
 }
 

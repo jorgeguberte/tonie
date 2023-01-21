@@ -2,28 +2,14 @@
     <div class="pianoWrapper w-full  flex place-content-center justify-center items-center">
     <div class="w-[280px] ">
         <svg width="100%">
-
-            
-            <!--<rect x="0" y="0" width="14.28%" height="100%"  fill="white" stroke="black"/>
-            <rect x="14.28%" y="0" width="14.28%" height="100%"  fill="white" stroke="black"/>
-            <rect x="28.56%" y="0" width="14.28%" height="100%"  fill="white" stroke="black"/>
-            <rect x="42.84%" y="0" width="14.28%" height="100%" fill="white" stroke="black"/>
-            <rect x="57.12%" y="0" width="14.28%" height="100%" fill="white" stroke="black"/>
-            <rect x="71.4%" y="0" width="14.28%" height="100%"  fill="white" stroke="black"/>
-            <rect x="85.68%" y="0" width="14.28%" height="100%"  fill="white" stroke="black"/>
-            
-            
-            <rect x="9.52%" width="9.52%" height="60%" fill="black"/>
-            <rect x="23.8%" width="9.52%" height="60%" fill="black"/>
-            <rect x="52.36%" width="9.52%" height="60%" fill="black"/>
-            <rect x="66.64%" width="9.52%" height="60%" fill="black"/>
-            <rect x="80.92%" width="9.52%" height="60%" fill="black"/>-->
-
             <rect v-for="key in keys" :x="key.x + '%'" :y="key.y" :width="key.width" :height="key.height" :fill="key.fill" :stroke="key.stroke" :id="key.note" rx="3" class="pianoKey"/>
         </svg>
     </div>
 </div>
-    <!--{{ activeNotes }}-->
+<ul class="w-full flex place-content-center justify-center gap-2 pt-2 text-white font-notomusic font-bold">
+    <li v-for="note in activeNotes">{{ note.replace(/#/g, "&sharp;") }}</li>
+</ul>
+    
 </template>
 
 <script setup>
