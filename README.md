@@ -5,7 +5,7 @@
 This app interacts with the Wed MIDI API in a way that allows the user to input MIDI notes and get visual and aural feedback regarding the input. 
 I.e: it identifies - via the tonaljs  library - the chord that is being played, and plays the corresponding tones using the tone.js library.
 
-## Features Roadmap
+## Release History
 
 ### v0.0.1 (prototype)
 - ~~MIDI Input~~
@@ -13,11 +13,16 @@ I.e: it identifies - via the tonaljs  library - the chord that is being played, 
 - ~~Aural feedback (notes via AudioContextAPI or possibly via a third party library if that's easier)~~
 - ~~Triad recognition~~
 - ~~Tetrachord recognition~~
-- ~~Input history~~
 - ~~Basic UI~~
+
+## Features Roadmap
   
   ### v0.0.2 
-- Input without a MIDI device
+- Input without a MIDI device (issue #1)
+- Volume control (issue #2)
+- Input history reflected on the UI (issue #3)
+
+### future releases
 - Key selection
   - Display accidental based on selected key
 - Key suggestion
