@@ -18,7 +18,7 @@ I.e: it identifies - via the tonaljs  library - the chord that is being played, 
 ## Features Roadmap
   
   ### v0.0.2 
-- Input without a MIDI device (issue #1)
+- ~~Input without a MIDI device (issue #1)~~
 - Volume control (issue #2)
 - Input history reflected on the UI (issue #3)
 
