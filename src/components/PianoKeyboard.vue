@@ -2,7 +2,7 @@
     <div class="pianoWrapper w-full  flex place-content-center justify-center items-center">
     <div class="w-[280px] ">
         <svg width="100%">
-            <rect v-for="key in keys" :x="key.x + '%'" :y="key.y" :width="key.width" :height="key.height" :fill="key.fill" :stroke="key.stroke" :id="key.note" rx="3" class="pianoKey"/>
+            <rect v-for="key in keys" :x="key.x + '%'" :y="key.y" :width="key.width" :height="key.height" :fill="key.fill" :stroke="key.stroke" :id="key.note" rx="3" class="pianoKey" @click="$emit('toggleNote',key.note)"/>
         </svg>
     </div>
 </div>
@@ -15,6 +15,8 @@
 <script setup>
 
 import { watch } from 'vue';
+
+defineEmits(['toggleNote']);
 
 const key_map = {
     white:{
@@ -95,6 +97,7 @@ watch(()=>props.activeNotes, (newValue, oldValue)=>{
 
    
 })
+
 
 
 </script>

@@ -24,7 +24,6 @@ export function useMIDI() {
 
   onMounted(() => {
     const chordsStore = useChordsStore();
-    //console.log(ignoreInversion.value);
     //Request MIDI Access
     if (navigator.requestMIDIAccess) {
       navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
@@ -123,5 +122,5 @@ export function useMIDI() {
 
 
 
-  return { midiStatus, midiDeviceStatus, midiIOList, notesPressed, currentChords, ignoreInversion };
+  return { midiStatus, midiDeviceStatus, midiIOList, notesPressed, currentChords, ignoreInversion, noteNames };
 }
