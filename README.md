@@ -7,7 +7,7 @@ I.e: it identifies - via the tonaljs  library - the chord that is being played, 
 
 ## Release History
 
-### v0.0.1 (prototype)
+### v0.0.1-prototype
 - ~~MIDI Input~~
 -  ~~Visual feedback (keyboard on screen)~~
 - ~~Aural feedback (notes via AudioContextAPI or possibly via a third party library if that's easier)~~
@@ -17,10 +17,12 @@ I.e: it identifies - via the tonaljs  library - the chord that is being played, 
 
 ## Features Roadmap
   
-  ### v0.0.2 
+  ### v0.0.2-prototype
 - ~~Input without a MIDI device (issue #1)~~
 - Volume control (issue #2)
 - Input history reflected on the UI (issue #3)
+- Play chord / arpeggio (issue #6)
+
 
 ### future releases
 - Key selection
